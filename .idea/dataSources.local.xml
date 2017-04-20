@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails konki_nanimiru: test" uuid="3507eac1-9d2f-4408-82aa-5a6ba8faf322">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>rails_user</user-name>
+    </data-source>
+    <data-source name="Rails konki_nanimiru: development" uuid="6f994347-7960-4344-b96c-619c8c67ccae">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>rails_user</user-name>
+    </data-source>
+    <data-source name="Rails konki_nanimiru: production" uuid="8b636809-df8d-4b89-8b89-e794b58ac2cb">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+    </data-source>
+  </component>
+</project>
