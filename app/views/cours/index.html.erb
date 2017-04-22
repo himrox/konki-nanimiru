@@ -4,12 +4,10 @@
     <th>Year</th>
     <th>Season</th>
   </tr>
-  <tr>
-    <% @cours.each do |cour| %>
-      <tr>
-        <td><%= cour.year %></td>
-        <td><%= cour.season %></td>
-      </tr>
-    <% end %>
-  </tr>
+  <% @cours.each do |cour| %>
+    <tr>
+      <td><%= cour.year %></td>
+      <td><%= cour.season %></td>
+    </tr>
+  <% end %>
 </table>
