@@ -1,0 +1,15 @@
+<h1>クール一覧</h1>
+<table class="table">
+  <tr>
+    <th>Year</th>
+    <th>Season</th>
+  </tr>
+  <tr>
+    <% @cours.each do |cour| %>
+      <tr>
+        <td><%= cour.year %></td>
+        <td><%= cour.season %></td>
+      </tr>
+    <% end %>
+  </tr>
+</table>
