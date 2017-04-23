@@ -1,1 +1,42 @@
-<h1>Home Page</h1>
+<div class="jumbotron">
+  <h1>今期なに見る?</h1>
+  <h2><p>今期見ているアニメをチェックして、みんなで共有しよう！</p></h2>
+  <p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">
+      アカウントを作る
+    </a>
+  </p>
+</div>
+
+<% @animes.each_slice(3) do |row_animes| %>
+  <div class="row">
+
+    <% row_animes.each do |anime| %>
+        <div class="col-sm-4">
+          <div class="panel panel-deafult">
+            <div class="panel-header"><%= anime.title %></div>
+            <div class="panel-body">
+              <div class="img-box">
+                <% if anime.img_url.blank? %>
+                  <%= image_tag("no_image.png", class: "box-img") %>
+                <% else %>
+                  <%= image_tag(anime.img_url, class: "box-img") %>
+                <% end %>
+              </div>
+              <div>
+                <p>
+                  <% if anime.story.blank? %>
+                    ここにアニメのストーリーを書きます。
+                  <% else %>
+                    <%= anime.story %>
+                  <% end %>
+                </p>
+                <a href="" class="btn btn-success btn-sm">Watch</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+
+  </div>
+<% end %>

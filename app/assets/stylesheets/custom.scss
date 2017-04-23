@@ -1,2 +1,50 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// ---- ヘッダー ---- //
+
+@mixin header-color {
+  color: #fff;
+
+  &:hover {
+    color: #aaa;
+  }
+}
+
+.navbar {
+  border-radius: 0;
+  border: none;
+  background-color: #2E8B57;
+  margin-bottom: 0;
+}
+
+.navbar-default .navbar-brand {
+  @include header-color;
+}
+
+.navbar-default .navbar-nav >li > a {
+  @include header-color;
+}
+
+// ---- アニメパネル ---- //
+
+img.box-img {
+  width: 100%;
+}
+
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 2;
+}
+
+.panel-header {
+  text-align: center;
+  padding-top: 10px;
+  height: 30px;
+}
+
+.panel-body{
+  height: 350px;
+}
