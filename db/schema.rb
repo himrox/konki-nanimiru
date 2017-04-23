@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420131422) do
+ActiveRecord::Schema.define(version: 20170423033525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "animes", force: :cascade do |t|
+    t.string   "title"
+    t.string   "public_url"
+    t.integer  "cour_id"
+    t.integer  "api_number"
+    t.text     "story"
+    t.string   "img_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title", "cour_id"], name: "index_animes_on_title_and_cour_id", unique: true, using: :btree
+  end
 
   create_table "cours", force: :cascade do |t|
     t.integer  "year"
