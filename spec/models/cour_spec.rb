@@ -70,5 +70,6 @@ RSpec.describe Cour, type: :model do
       @cour.save
       expect(dup_cour).not_to be_valid
     end
+
   end
 end

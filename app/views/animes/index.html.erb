@@ -1,0 +1,17 @@
+<h1>アニメ一覧</h1>
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>API Number</th>
+    <th>Year</th>
+    <th>Season</th>
+  </tr>
+  <% @animes.each do |anime| %>
+    <tr>
+      <td><%= anime.title %></td>
+      <td><%= anime.api_number %></td>
+      <td><%= anime.cour.year %></td>
+      <td><%= anime.cour.season %></td>
+    </tr>
+  <% end %>
+</table>
