@@ -14,7 +14,9 @@
     <% row_animes.each do |anime| %>
         <div class="col-sm-4">
           <div class="panel panel-deafult">
-            <div class="panel-header"><%= anime.title %></div>
+            <div class="panel-header">
+              <%= anime.title %>
+            </div>
             <div class="panel-body">
               <div class="img-box">
                 <% if anime.img_url.blank? %>

@@ -17,7 +17,7 @@ class StaticPagesController < ApplicationController
     when 7..9
       3
     when 10..12
-      3
+      4
     end
   end
 end
