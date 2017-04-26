@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'layouts/master_sidemenu' %>
+  </div>
+  <div class="col-md-9">
+    <h1><%= @anime.title %></h1>
+    <%= form_for @anime do |f| %>
+      <%= render "shared/errors", object: f.object %>
+
+      <div class="form-group">
+        <%= f.label :public_url %>
+        <%= f.text_field :public_url, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :img_url %>
+        <%= f.text_field :img_url, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :story %>
+        <%= f.text_area :story, class: 'form-control' %>
+      </div>
+
+      <%= f.submit '編集する', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

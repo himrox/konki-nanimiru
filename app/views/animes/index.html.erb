@@ -13,7 +13,7 @@
       </tr>
       <% @animes.each do |anime| %>
         <tr>
-          <td><%= anime.title %></td>
+          <td><%= link_to anime.title, edit_anime_path(anime.id) %></td>
           <td><%= anime.api_number %></td>
           <td><%= anime.cour.year %></td>
           <td><%= anime.cour.season %></td>
