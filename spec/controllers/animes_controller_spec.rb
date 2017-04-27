@@ -1,23 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe AnimesController, type: :controller do
-  describe 'GET #index' do
-    it 'Indexテンプレートを表示すること' do
-      get :index
-      expect(response).to render_template :index
-    end
-
-    it '全てのAnimeを配列にまとめること' do
-      cour = create(:cour)
-      (1..10).each do |i|
-        cour.animes.create(title: "テスト#{i}", api_number: i)
-      end
-      animes = Anime.all.order(api_number: :desc)
-      get :index
-      expect(assigns(:animes)).to eq(animes)
-    end
-  end
-
   describe 'GET #edit' do
     before do
       @anime = create(:anime)
@@ -56,8 +39,8 @@ RSpec.describe AnimesController, type: :controller do
         expect(@anime.img_url).to eq('http://example.com')
       end
 
-      it 'indexにリダイレクトされること' do
-        expect(response).to redirect_to animes_path
+      it 'rootにリダイレクトされること' do
+        expect(response).to redirect_to root_path
       end
     end
 

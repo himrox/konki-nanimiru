@@ -1,8 +1,4 @@
 class AnimesController < ApplicationController
-  def index
-    @animes = Anime.all.order(api_number: :desc).includes(:cour)
-  end
-
   def edit
     @anime = Anime.find(params[:id])
   end
@@ -12,7 +8,7 @@ class AnimesController < ApplicationController
 
     if @anime.update_attributes(anime_params)
       flash[:success] = '更新しました'
-      redirect_to animes_path
+      redirect_to root_path
     else
       render 'edit'
     end

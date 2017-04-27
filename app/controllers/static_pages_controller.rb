@@ -2,8 +2,8 @@ class StaticPagesController < ApplicationController
   def home
     year = Date.today.year
     mon = Date.today.mon
-    @cour = Cour.find_by(year: year, season: season(mon))
-    @animes = @cour.animes
+    cour = Cour.find_by(year: year, season: season(mon))
+    @animes = cour.animes.order(:api_number)
   end
 
   private
