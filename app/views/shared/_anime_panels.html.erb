@@ -1,0 +1,34 @@
+<% @animes.each_slice(3) do |row_animes| %>
+  <div class="row">
+
+    <% row_animes.each do |anime| %>
+      <div class="col-sm-4">
+        <div class="panel panel-deafult">
+
+          <div class="panel-header">
+            <%= anime.title %>
+          </div>
+
+          <div class="panel-body">
+            <div class="img-box">
+              <% if anime.img_url.blank? %>
+                <%= image_tag("no_image.png", class: "box-img") %>
+              <% else %>
+                <%= image_tag(anime.img_url, class: "box-img") %>
+              <% end %>
+            </div>
+            <div>
+              <p>
+                <%= anime.story %>
+              </p>
+              <a href="" class="btn btn-success btn-sm">Watch</a>
+              <%= link_to 'Edit', edit_anime_path(anime.id), class: 'btn btn-sm btn-default' %>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+<% end %>

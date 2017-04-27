@@ -1,6 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe AnimesController, type: :controller do
+
+  describe 'GET #index' do
+    before do
+      @anime = create(:anime)
+      cour = @anime.cour
+      get :index, params: { year: cour.year, season: cour.season }
+    end
+
+    it 'indexテンプレートを表示すること' do
+      expect(response).to render_template :index
+    end
+
+    it '@animesに要求されたクールのアニメが含まれていること' do
+      expect(assigns(:animes)).to include(@anime)
+    end
+  end
+
   describe 'GET #edit' do
     before do
       @anime = create(:anime)

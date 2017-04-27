@@ -1,4 +1,9 @@
 class AnimesController < ApplicationController
+  def index
+    cour = Cour.find_by(year: params[:year], season: params[:season])
+    @animes = cour.animes
+  end
+
   def edit
     @anime = Anime.find(params[:id])
   end
