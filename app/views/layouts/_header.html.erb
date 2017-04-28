@@ -16,15 +16,20 @@
       <!-- main navbar -->
       <ul class="nav navbar-nav">
         <li>
-          <a href="">過去のアニメ</a>
-        </li>
-        <li>
           <a href="">ウォッチリスト</a>
         </li>
       </ul>
 
       <!-- right navbar -->
       <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">過去のアニメ <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to '2017年冬アニメ', animes_path(year: 2017, season: 1) %></li>
+            <li><%= link_to '2016年秋アニメ', animes_path(year: 2016, season: 4) %></li>
+            <li><%= link_to '2016年夏アニメ', animes_path(year: 2016, season: 3) %></li>
+          </ul>
+        </li>
         <li>
           <a href="">ログイン</a>
         </li>
