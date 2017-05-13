@@ -30,9 +30,11 @@
             <li><%= link_to '2016年夏アニメ', animes_path(year: 2016, season: 3) %></li>
           </ul>
         </li>
-        <li>
-          <a href="">ログイン</a>
-        </li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>

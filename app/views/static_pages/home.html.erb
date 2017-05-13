@@ -1,10 +1,11 @@
-<div class="jumbotron">
-  <h1>今期なに見る?</h1>
-  <h2><p>今期見ているアニメをチェックして、みんなで共有しよう！</p></h2>
-  <p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">
-      アカウントを作る
-    </a>
-  </p>
-</div>
+<% unless user_signed_in? %>
+  <div class="jumbotron">
+    <h1>今期なに見る?</h1>
+    <h2><p>今期見ているアニメをチェックして、みんなで共有しよう！</p></h2>
+    <p>
+      <%= link_to 'アカウントを作る', new_user_registration_path,
+                                      class: 'btn btn-primary btn-lg' %>
+    </p>
+  </div>
+<% end %>
 <%= render 'shared/anime_panels' %>
