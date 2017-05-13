@@ -10,8 +10,9 @@
 #
 
 FactoryGirl.define do
+
   factory :cour do
-    year 2017
-    season 1
+    year Date.today.year
+    season (Date.today.mon / 3.0).ceil
   end
 end
