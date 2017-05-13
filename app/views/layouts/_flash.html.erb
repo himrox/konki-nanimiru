@@ -1,0 +1,9 @@
+<% flash.each do |message_type, message| %>
+  <% if %(success info warning danger).include?(message_type) %>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+  <% elsif message_type == 'notice' %>
+    <%= content_tag(:div, message, class: "alert alert-success") %>
+  <% elsif message_type == 'alert' %>
+    <%= content_tag(:div, message, class: "alert alert-danger") %>
+  <% end %>
+<% end %>
