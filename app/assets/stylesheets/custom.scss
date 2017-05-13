@@ -50,12 +50,24 @@ img.box-img {
 }
 
 // ---- マスター ---- //
+
 ul.list-group {
   margin-top: 30px;
 }
 
 // ---- アラート ---- //
+
 .alert {
   margin-top: 20px;
   margin-bottom: 0
+}
+
+// ---- ログインフォーム ---- //
+
+input.btn {
+  width: 100%;
+}
+
+div.devise-links {
+  margin-top: 20px;
 }
