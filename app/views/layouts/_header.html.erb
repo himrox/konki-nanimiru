@@ -16,7 +16,9 @@
       <!-- main navbar -->
       <ul class="nav navbar-nav">
         <li>
-          <a href="">ウォッチリスト</a>
+          <% if user_signed_in? %>
+            <%= link_to 'ウォッチリスト', '#' %>
+          <% end %>
         </li>
       </ul>
 
@@ -34,6 +36,7 @@
           <li><%= link_to 'アカウント設定', edit_user_registration_path %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
         <% else %>
+          <li><%= link_to 'アカウントを作る', new_user_registration_path %></li>
           <li><%= link_to 'ログイン', new_user_session_path %></li>
         <% end %>
       </ul>

@@ -21,8 +21,10 @@
               <p>
                 <%= anime.story %>
               </p>
-              <a href="" class="btn btn-success btn-sm">Watch</a>
-              <%= link_to 'Edit', edit_anime_path(anime.id), class: 'btn btn-sm btn-default' %>
+              <% if user_signed_in? %>
+                <%= link_to 'Watch', '#', class: 'btn btn-success btn-sm' %>
+                <%= link_to 'Edit', edit_anime_path(anime.id), class: 'btn btn-sm btn-default' %>
+              <% end %>
             </div>
           </div>
 
