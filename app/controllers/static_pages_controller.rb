@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
     year = Date.today.year
     mon = Date.today.mon
     cour = Cour.find_by(year: year, season: season(mon))
-    @animes = cour.animes.order(:api_number)
+    @animes = cour.animes.order(:api_number) unless cour.nil?
   end
 
   private
