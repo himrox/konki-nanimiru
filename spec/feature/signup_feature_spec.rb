@@ -6,10 +6,10 @@ RSpec.describe 'Signup feature spec', type: :feature do
     user = FactoryGirl.build(:user)
     expect{
       visit new_user_registration_path
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
-      fill_in 'Password confirmation', with: user.password_confirmation
-      click_button 'Sign up'
+      fill_in 'メールアドレス', with: user.email
+      fill_in 'パスワード', with: user.password
+      fill_in 'パスワード(確認用)', with: user.password_confirmation
+      click_button 'アカウント登録'
     }.to change(User, :count).by(1)
     expect(current_path).to eq root_path
     expect(page).to have_link 'ログアウト', href: destroy_user_session_path
@@ -20,10 +20,10 @@ RSpec.describe 'Signup feature spec', type: :feature do
     user.email = '   '
     expect{
       visit new_user_registration_path
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
-      fill_in 'Password confirmation', with: user.password_confirmation
-      click_button 'Sign up'
+      fill_in 'メールアドレス', with: user.email
+      fill_in 'パスワード', with: user.password
+      fill_in 'パスワード(確認用)', with: user.password_confirmation
+      click_button 'アカウント登録'
     }.not_to change(User, :count)
     expect(page).not_to have_link 'ログアウト', href: destroy_user_session_path
   end

@@ -17,9 +17,9 @@ RSpec.describe 'Site Layout feature spec', type: :feature do
 
   scenario 'ログインしている場合' do
     visit new_user_session_path
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
-    click_button 'Log in'
+    fill_in 'メールアドレス', with: @user.email
+    fill_in 'パスワード', with: @user.password
+    click_button 'ログイン'
 
     visit root_path
     expect(page).not_to have_link 'アカウントを作る', href: new_user_registration_path
