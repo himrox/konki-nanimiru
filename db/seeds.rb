@@ -22,3 +22,6 @@ cour_result.each_value do |api_cour|
     cour.animes.find_or_create_by(title: title, public_url: public_url, api_number: api_number)
   end
 end
+
+User.create(email: "himrox77@gmail.com", password: "password",
+            password_confirmation: "password")
