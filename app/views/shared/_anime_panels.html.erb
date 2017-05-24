@@ -1,14 +1,11 @@
 <% @animes.each_slice(3) do |row_animes| %>
   <div class="row">
-
     <% row_animes.each do |anime| %>
       <div class="col-sm-4">
         <div class="panel panel-deafult">
-
           <div class="panel-header">
             <%= anime.title %>
           </div>
-
           <div class="panel-body">
             <div class="img-box">
               <% if anime.img_url.blank? %>
@@ -23,23 +20,17 @@
               </p>
               <% if user_signed_in? %>
                 <% if @watch_animes.include?(anime) %>
-                  <%= link_to 'UnWatch', watches_destroy_path(anime_id: anime.id),
-                                         method: 'delete',
-                                         class: 'btn btn-danger btn-sm' %>
+                  <%= render 'shared/unwatch_button', anime_id: anime.id %>
                 <% else %>
-                  <%= link_to 'Watch', watches_create_path(anime_id: anime.id),
-                                       method: 'post',
-                                       class: 'btn btn-success btn-sm' %>
+                  <%= render 'shared/watch_button', anime_id: anime.id %>
                 <% end %>
                 <%= link_to 'Edit', edit_anime_path(anime.id),
                                     class: 'btn btn-sm btn-default' %>
               <% end %>
             </div>
           </div>
-
         </div>
       </div>
     <% end %>
-
   </div>
 <% end %>
