@@ -1,7 +1,13 @@
 class AnimesController < ApplicationController
   def index
     cour = Cour.find_by(year: params[:year], season: params[:season])
-    @animes = cour.animes
+    if cour.present?
+      @animes = cour.animes.order(:api_number)
+      @watch_animes = current_user.animes if user_signed_in?
+    else
+      flash[:danger] = 'そんなページないよ'
+      redirect_to root_path
+    end
   end
 
   def edit

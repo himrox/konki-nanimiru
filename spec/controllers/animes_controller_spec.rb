@@ -16,6 +16,11 @@ RSpec.describe AnimesController, type: :controller do
     it '@animesに要求されたクールのアニメが含まれていること' do
       expect(assigns(:animes)).to include(@anime)
     end
+
+    it '不正なパラメーターを受け取った場合ルートにリダイレクトされる' do
+      get :index, params: { year: 2999, season: 9 }
+      expect(response).to redirect_to root_path
+    end
   end
 
   describe 'GET #edit' do

@@ -8,6 +8,6 @@
     </p>
   </div>
 <% end %>
-<% unless @animes.nil? %>
+<% if @animes.present? %>
   <%= render 'shared/anime_panels' %>
 <% end %>
