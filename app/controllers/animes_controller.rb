@@ -11,7 +11,8 @@ class AnimesController < ApplicationController
   end
 
   def edit
-    @anime = Anime.find(params[:id])
+    @anime = Anime.find_by(id: params[:id])
+    redirect_to root_path if @anime.blank?
   end
 
   def update
