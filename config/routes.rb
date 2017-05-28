@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/animes/:year/:season', to: 'animes#index', as: 'animes'
   post 'watches/create'
   delete 'watches/destroy'
+  get 'watches/:year/:season', to: 'watches#index', as: 'watches'
 end
