@@ -1,3 +1,3 @@
-<%= link_to 'UnWatch', watches_destroy_path(anime_id: anime_id),
-                       method: 'delete', remote: true,
-                       class: 'btn btn-danger btn-sm', id: "unwatch_#{anime_id}" %>
+<%= link_to 'Watch', watches_destroy_path(anime_id: anime_id),
+                     method: 'delete', remote: true,
+                     class: 'btn btn-success btn-sm', id: "unwatch_#{anime_id}" %>
