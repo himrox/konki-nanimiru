@@ -11,12 +11,15 @@ class AnimesController < ApplicationController
   end
 
   def edit
+    authenticate_user!
     @anime = Anime.find_by(id: params[:id])
-    redirect_to root_path if @anime.blank?
+    redirect_to root_path if @anime.blank? || !current_user.admin?
   end
 
   def update
+    authenticate_user!
     @anime = Anime.find(params[:id])
+    redirect_to root_path if @anime.blank? || !current_user.admin?
 
     if @anime.update_attributes(anime_params)
       flash[:success] = '更新しました'
