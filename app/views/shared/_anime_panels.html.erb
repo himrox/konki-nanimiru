@@ -24,8 +24,10 @@
                 <% else %>
                   <%= render 'shared/watch_button', anime_id: anime.id %>
                 <% end %>
-                <%= link_to 'Edit', edit_anime_path(anime.id),
-                                    class: 'btn btn-sm btn-default' %>
+                <% if current_user.admin? %>
+                  <%= link_to 'Edit', edit_anime_path(anime.id),
+                                      class: 'btn btn-sm btn-default' %>
+                <% end %>
               <% end %>
             </div>
           </div>

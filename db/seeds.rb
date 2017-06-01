@@ -25,3 +25,6 @@ end
 
 User.create(email: "himrox77@gmail.com", password: "password",
             password_confirmation: "password")
+
+User.create(email: "admin@gmail.com", password: "password",
+            password_confirmation: "password", admin: true)
