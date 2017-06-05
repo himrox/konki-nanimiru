@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'Watch feature spec', type: :feature do
+RSpec.describe 'Watch feature spec', type: :feature, js: true do
 
-  before do
+  scenario 'アニメをWatch状態にする' do
     @user = create(:user)
     @anime = create(:anime)
 
@@ -10,12 +10,12 @@ RSpec.describe 'Watch feature spec', type: :feature do
     fill_in 'メールアドレス', with: @user.email
     fill_in 'パスワード', with: @user.password
     click_button 'ログイン'
-  end
+    click_link 'UnWatch'
+    visit root_path
+    expect(Watch.count).to eq 1
 
-  # scenario 'アニメをWatch状態にする' do
-  #   visit root_path
-  #   expect(page).to have_link 'Watch'
-  #   expect(page).not_to have_link 'UnWatch'
-  #   expect(click_link 'Watch').to change(Watch, :count).by(1)
-  # end
+    click_link 'Watch'
+    visit root_path
+    expect(Watch.count).to eq 0
+  end
 end
