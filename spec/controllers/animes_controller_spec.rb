@@ -25,6 +25,7 @@ RSpec.describe AnimesController, type: :controller do
 
   describe 'GET #edit' do
     before do
+      login_user
       @anime = create(:anime)
       get :edit, params: { id: @anime }
     end
@@ -40,6 +41,7 @@ RSpec.describe AnimesController, type: :controller do
 
   describe 'PATCH #update' do
     before do
+      login_user
       @anime = create(:anime)
     end
 
