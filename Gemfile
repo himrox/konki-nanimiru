@@ -25,6 +25,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'simplecov'
 end
 
 group :development do
