@@ -12,7 +12,7 @@ class AnimesController < ApplicationController
 
   def edit
     authenticate_user!
-    @anime = Anime.find_by(id: params[:id])
+    @anime = Anime.find(params[:id])
     redirect_to root_path if @anime.blank? || !current_user.admin?
   end
 
