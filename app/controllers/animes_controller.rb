@@ -1,8 +1,8 @@
 class AnimesController < ApplicationController
   def index
-    cour = Cour.find_by(year: params[:year], season: params[:season])
-    if cour.present?
-      @animes = cour.animes.order(:api_number)
+    @cour = Cour.find_by(year: params[:year], season: params[:season])
+    if @cour.present?
+      @animes = @cour.animes.order(:api_number)
       @watch_animes = current_user.animes if user_signed_in?
     else
       flash[:danger] = 'そんなページないよ'

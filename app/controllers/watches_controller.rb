@@ -3,9 +3,9 @@ class WatchesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    cour = Cour.find_by(year: params[:year], season: params[:season])
-    if cour.present?
-      @animes = current_user.animes.where(cour_id: cour.id)
+    @cour = Cour.find_by(year: params[:year], season: params[:season])
+    if @cour.present?
+      @animes = current_user.animes.where(cour_id: @cour.id)
       @watch_animes = @animes
     else
       flash[:danger] = 'そんなページないよ'
