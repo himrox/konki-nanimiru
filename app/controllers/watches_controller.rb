@@ -6,7 +6,7 @@ class WatchesController < ApplicationController
     @cour = Cour.find_by(year: params[:year], season: params[:season])
     if @cour.present?
       @animes = current_user.animes.where(cour_id: @cour.id)
-      @watch_animes = @animes
+      @watching_anime_ids = watching_anime_ids(current_user)
     else
       flash[:danger] = 'そんなページないよ'
       redirect_to root_path

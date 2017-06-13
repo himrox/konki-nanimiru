@@ -20,10 +20,16 @@
                 <%= anime.story %>
               </p>
               <% if user_signed_in? %>
-                <% if @watch_animes.include?(anime) %>
-                  <%= render 'shared/unwatch_button', anime_id: anime.id %>
+                <% if @watching_anime_ids.include?(anime.id) %>
+                  <%= link_to 'Watch', watches_destroy_path(anime_id: anime.id),
+                                       method: 'delete', remote: true,
+                                       class: 'btn btn-success btn-sm',
+                                       id: "unwatch_#{anime.id}" %>
                 <% else %>
-                  <%= render 'shared/watch_button', anime_id: anime.id %>
+                  <%= link_to 'UnWatch', watches_create_path(anime_id: anime.id),
+                                         method: 'post', remote: true,
+                                         class: 'btn btn-sm btn-default',
+                                         id: "watch_#{anime.id}" %>
                 <% end %>
                 <% if current_user.admin? %>
                   <%= link_to 'Edit', edit_anime_path(anime.id),
