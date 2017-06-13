@@ -70,6 +70,16 @@ RSpec.describe Cour, type: :model do
       @cour.save
       expect(dup_cour).not_to be_valid
     end
+  end
 
+  it '#season_nameメソッドが季節の日本語名を返すこと' do
+    cour = Cour.new(year: 2017, season: 1)
+    expect(cour.season_name).to eq '冬'
+    cour = Cour.new(year: 2017, season: 2)
+    expect(cour.season_name).to eq '春'
+    cour = Cour.new(year: 2017, season: 3)
+    expect(cour.season_name).to eq '夏'
+    cour = Cour.new(year: 2017, season: 4)
+    expect(cour.season_name).to eq '秋'
   end
 end

@@ -21,4 +21,10 @@ class Cour < ApplicationRecord
                      numericality: { only_integer: true,
                                      greater_than_or_equal_to: 1,
                                      less_than_or_equal_to: 4 }
+
+  # 季節の日本語名を返す
+  def season_name
+    season_names = { 1 => '冬', 2 => '春', 3 => '夏', 4 => '秋' }
+    season_names[self.season]
+  end
 end
