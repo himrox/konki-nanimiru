@@ -3,7 +3,7 @@ class AnimesController < ApplicationController
     @cour = Cour.find_by(year: params[:year], season: params[:season])
     if @cour.present?
       @animes = @cour.animes.order(:api_number)
-      @watching_anime_ids = watching_anime_ids(current_user) if user_signed_in?
+      @watching_anime_ids = current_user.watching_anime_ids if user_signed_in?
     else
       flash[:danger] = 'そんなページないよ'
       redirect_to root_path

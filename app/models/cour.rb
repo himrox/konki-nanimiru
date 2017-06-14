@@ -22,6 +22,14 @@ class Cour < ApplicationRecord
                                      greater_than_or_equal_to: 1,
                                      less_than_or_equal_to: 4 }
 
+  # 現在のクールを返す
+  def self.current_cour
+    year   = Date.today.year
+    mon    = Date.today.mon
+    season = (mon / 3.0).ceil
+    Cour.find_by(year: year, season: season)
+  end
+
   # 季節の日本語名を返す
   def season_name
     season_names = { 1 => '冬', 2 => '春', 3 => '夏', 4 => '秋' }

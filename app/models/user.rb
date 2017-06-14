@@ -26,4 +26,13 @@ class User < ApplicationRecord
 
   has_many :watches, dependent: :destroy
   has_many :animes, through: :watches
+
+  # ユーザーが見ているアニメのidの配列を返す
+  def watching_anime_ids
+    ids = []
+    self.animes.each do |anime|
+      ids << anime.id
+    end
+    ids
+  end
 end
