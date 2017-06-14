@@ -5,7 +5,7 @@ class WatchesController < ApplicationController
   def index
     @cour = Cour.find_by(year: params[:year], season: params[:season])
     if @cour.present?
-      @animes = current_user.animes.where(cour_id: @cour.id)
+      @animes = current_user.animes.where(cour_id: @cour.id).page(params[:page])
       @watching_anime_ids = current_user.watching_anime_ids
     else
       flash[:danger] = 'そんなページないよ'
