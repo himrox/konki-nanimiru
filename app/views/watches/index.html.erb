@@ -1,3 +1,4 @@
+<% provide(:title, "#{@cour.year}年#{@cour.season_name}アニメ") %>
 <% if @animes.present? %>
   <%= render 'shared/anime_panels' %>
 <% end %>
