@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
+#  email                  :string           default("")
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -16,6 +16,9 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  admin                  :boolean          default(FALSE)
+#  provider               :string
+#  uid                    :string
+#  username               :string
 #
 
 class User < ApplicationRecord
@@ -28,13 +31,25 @@ class User < ApplicationRecord
   has_many :watches, dependent: :destroy
   has_many :animes, through: :watches
 
+  validates :email, presence: true, if: "uid.blank?"
+  VALID_USERNAME_REGEX = /\A[a-zA-Z0-9_]+\z/
+  validates :username, presence: true, uniqueness: true,
+                       format: { with: VALID_USERNAME_REGEX },
+                       if: "uid.blank?"
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = "#{auth.info.name}@twitter.com"
+      user.username = auth.info.nickname
       user.password = Devise.friendly_token[0,20]
-      # user.name = auth.info.name
-      # user.image = auth.info.image
     end
+  end
+
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
   end
 
   # ユーザーが見ているアニメのidの配列を返す

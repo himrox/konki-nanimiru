@@ -2,7 +2,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def twitter
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
-    if @user.persisted?
+    if @user.persisted? && @user.valid?
       sign_in_and_redirect @user, :event => :authentication
       set_flash_message(:notice, :success, :kind => "Twitter") if is_navigational_format?
     else
