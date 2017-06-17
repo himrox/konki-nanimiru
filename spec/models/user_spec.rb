@@ -19,9 +19,32 @@
 #  provider               :string
 #  uid                    :string
 #  username               :string
+#  twitter_account        :string
 #
 
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  before do
+    @user = User.new(username: "test", email: "test@example.com", password: "password")
+  end
+
+  it "username, email, passwordがあれば有効であること" do
+    expect(@user).to be_valid
+  end
+
+  it "usernameが無ければ無効であること" do
+    @user.username = ""
+    expect(@user).not_to be_valid
+  end
+
+  it "emailが無ければ無効であること" do
+    @user.email = ""
+    expect(@user).not_to be_valid
+  end
+
+  it "passwordが無ければ無効であること" do
+    @user.password = ""
+    expect(@user).not_to be_valid
+  end
 end

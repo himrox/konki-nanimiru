@@ -19,6 +19,7 @@
 #  provider               :string
 #  uid                    :string
 #  username               :string
+#  twitter_account        :string
 #
 
 FactoryGirl.define do

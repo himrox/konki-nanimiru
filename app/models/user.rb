@@ -19,6 +19,7 @@
 #  provider               :string
 #  uid                    :string
 #  username               :string
+#  twitter_account        :string
 #
 
 class User < ApplicationRecord
@@ -31,14 +32,17 @@ class User < ApplicationRecord
   has_many :watches, dependent: :destroy
   has_many :animes, through: :watches
 
-  validates :email, presence: true, if: "uid.blank?"
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9_]+\z/
-  validates :username, presence: true, uniqueness: true,
-                       format: { with: VALID_USERNAME_REGEX },
-                       if: "uid.blank?"
+  validates :username, format: { with: VALID_USERNAME_REGEX }
+
+  with_options if: "uid.blank?" do |signup_user|
+    signup_user.validates :email, presence: true, uniqueness: true
+    signup_user.validates :username, presence: true, uniqueness: true
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.twitter_account = auth.info.nickname
       user.username = auth.info.nickname
       user.password = Devise.friendly_token[0,20]
     end
