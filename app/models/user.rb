@@ -33,17 +33,19 @@ class User < ApplicationRecord
   has_many :animes, through: :watches
 
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9_]+\z/
-  validates :username, format: { with: VALID_USERNAME_REGEX }
+  validates :username, uniqueness: true
+  validates :email, uniqueness: true
 
   with_options if: "uid.blank?" do |signup_user|
-    signup_user.validates :email, presence: true, uniqueness: true
-    signup_user.validates :username, presence: true, uniqueness: true
+    signup_user.validates :email, presence: true
+    signup_user.validates :username, presence: true,
+                                     format: { with: VALID_USERNAME_REGEX }
   end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.twitter_account = auth.info.nickname
-      user.username = auth.info.nickname
+      user.username = "@#{auth.info.nickname}"
       user.password = Devise.friendly_token[0,20]
     end
   end
