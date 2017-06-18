@@ -28,6 +28,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
   gem 'simplecov'
+  gem 'dotenv-rails'
 end
 
 group :development do
