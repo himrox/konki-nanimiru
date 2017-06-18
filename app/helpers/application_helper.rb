@@ -5,6 +5,13 @@ module ApplicationHelper
   end
 
   def last_3_cours
-    Cour.order(year: :desc, season: :desc).limit(3).offset(1)
+    current_cour = Cour.current_cour
+    latest_cour  = Cour.order(year: :desc, season: :desc).first
+
+    if current_cour == latest_cour
+      Cour.order(year: :desc, season: :desc).limit(3).offset(1)
+    else
+      Cour.order(year: :desc, season: :desc).limit(3).offset(2)
+    end
   end
 end
