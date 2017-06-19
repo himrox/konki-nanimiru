@@ -1,0 +1,9 @@
+<h2>過去のアニメ一覧</h2>
+<ul class="list-group">
+  <% @cours.each do |cour| %>
+    <li class="list-group-item">
+      <%= link_to "#{cour.year}年#{cour.season_name}アニメ",
+                  animes_path(year: cour.year, season: cour.season) %>
+    </li>
+  <% end %>
+</ul>
