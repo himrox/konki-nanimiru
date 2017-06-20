@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   post 'watches/create'
   delete 'watches/destroy'
-  get 'watches/:year/:season', to: 'watches#index', as: 'watches'
 
   resources :archives, only: [:index]
 end

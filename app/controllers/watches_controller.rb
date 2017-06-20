@@ -1,17 +1,5 @@
 class WatchesController < ApplicationController
-
   before_action :authenticate_user!
-
-  def index
-    @cour = Cour.find_by(year: params[:year], season: params[:season])
-    if @cour.present?
-      @animes = current_user.animes.where(cour_id: @cour.id).page(params[:page])
-      @watching_anime_ids = current_user.watching_anime_ids
-    else
-      flash[:danger] = 'そんなページないよ'
-      redirect_to root_path
-    end
-  end
 
   def create
     user_id = current_user.id
