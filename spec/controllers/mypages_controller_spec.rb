@@ -4,6 +4,7 @@ RSpec.describe MypagesController, type: :controller do
   describe 'GET #show' do
     it 'showテンプレートを表示すること' do
       user = create(:user)
+      cour = create(:cour)
       get :show, params: { username: user.username }
       expect(response).to render_template :show
     end
