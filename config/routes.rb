@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   delete 'watches/destroy'
 
   resources :archives, only: [:index]
+
+  get '/:username', to: 'mypages#show', as: 'mypages'
 end

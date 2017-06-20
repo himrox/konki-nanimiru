@@ -16,6 +16,9 @@
       <!-- main navbar -->
       <ul class="nav navbar-nav">
         <li>
+          <% if user_signed_in? %>
+            <%= link_to 'マイページ', mypages_path(username: current_user.username) %>
+          <% end %>
         </li>
       </ul>
 
