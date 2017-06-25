@@ -20,6 +20,11 @@
 #  uid                    :string
 #  username               :string
 #  twitter_account        :string
+#  image                  :string
+#
+# Indexes
+#
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
 class User < ApplicationRecord

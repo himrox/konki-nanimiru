@@ -12,6 +12,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_animes_on_title_and_cour_id  (title,cour_id) UNIQUE
+#
 
 require 'rails_helper'
 

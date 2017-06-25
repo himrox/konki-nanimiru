@@ -8,6 +8,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_cours_on_year_and_season  (year,season) UNIQUE
+#
 
 class Cour < ApplicationRecord
   has_many :animes, dependent: :destroy
