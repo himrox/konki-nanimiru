@@ -1,4 +1,7 @@
 <h2><%= @cour.year %>年 <%= @cour.season_name %>アニメ</h2>
+<div class="panel-tweet-btn">
+  <%= link_to "Tweet", @cour.tweet_btn_uri, class: "twitter-share-button" %>
+</div>
 <% @animes.each_slice(3) do |row_animes| %>
   <div class="row">
     <% row_animes.each do |anime| %>

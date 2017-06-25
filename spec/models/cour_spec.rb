@@ -86,4 +86,11 @@ RSpec.describe Cour, type: :model do
     cour = Cour.new(year: 2017, season: 4)
     expect(cour.season_name).to eq '秋'
   end
+
+  it "twitterボタンのリンクを返すこと" do
+    url = "http://twitter.com/intent/tweet?text=" +
+      "今期なに見る？で#{@cour.year}年#{@cour.season_name}アニメをチェック！" +
+      "&hashtags=#{@cour.year}年#{@cour.season_name}アニメ,今期なに見る？"
+    expect(@cour.tweet_btn_uri).to eq url
+  end
 end

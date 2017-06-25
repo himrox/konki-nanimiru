@@ -39,4 +39,10 @@ class Cour < ApplicationRecord
     season_names = { 1 => '冬', 2 => '春', 3 => '夏', 4 => '秋' }
     season_names[self.season]
   end
+
+  def tweet_btn_uri
+    "http://twitter.com/intent/tweet?text=" +
+    "今期なに見る？で#{self.year}年#{self.season_name}アニメをチェック！" +
+    "&hashtags=#{self.year}年#{self.season_name}アニメ,今期なに見る？"
+  end
 end
