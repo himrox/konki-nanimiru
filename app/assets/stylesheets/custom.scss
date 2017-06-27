@@ -26,6 +26,10 @@
   @include header-color;
 }
 
+a.header-icon {
+  padding: 0px !important;
+}
+
 // ---- フッター ---- //
 
 #footer {

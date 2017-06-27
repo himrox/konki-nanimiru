@@ -3,6 +3,8 @@
     <div class="panel panel-default user-info">
       <% if @user.image.present? %>
         <%= image_tag(@user.image, class: 'user-image') %>
+      <% else %>
+        <%= image_tag("default_icon.png", class: 'user-image') %>
       <% end %>
       <h3 class="user-name"><%= @user.username %></h3>
     </div>
@@ -21,6 +23,6 @@
           </div>
         </li>
       <% end %>
-    </div>
+    </ul>
   </div>
 </div>
