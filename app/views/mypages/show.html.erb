@@ -7,6 +7,9 @@
         <%= image_tag("default_icon.png", class: 'user-image') %>
       <% end %>
       <h3 class="user-name"><%= @user.username %></h3>
+      <div class="mypage-tweet-btn">
+        <%= link_to "Tweet", Cour.current_cour.tweet_btn_uri, class: "twitter-share-button" %>
+      </div>
     </div>
   </div>
   <div class="col-md-6">
