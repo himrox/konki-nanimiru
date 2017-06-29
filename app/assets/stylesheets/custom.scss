@@ -75,6 +75,21 @@ img.box-img {
   margin-bottom: 10px;
 }
 
+@media (max-width: 991px) {
+  .panel {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  img.box-img {
+    width: 380px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 // ---- マスター ---- //
 
 ul.list-group {
