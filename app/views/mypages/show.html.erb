@@ -17,7 +17,7 @@
       <li class="list-group-item list-group-item-info">今期見ているアニメ</li>
       <% @animes.each do |anime| %>
         <li class="list-group-item watch-list">
-          <%= anime.title %>
+          <%= link_to(anime.title, anime.public_url, target: "_blank") %>
           <div class="list-btn">
             <%= link_to 'Watch', watches_destroy_path(anime_id: anime.id),
                                  method: 'delete', remote: true,
