@@ -11,7 +11,7 @@ RSpec.describe 'Site Layout feature spec', type: :feature do
     visit root_path
     expect(page).to have_link 'アカウントを作る', href: new_user_registration_path
     expect(page).not_to have_link 'ウォッチリスト'
-    expect(page).not_to have_link 'Watch'
+    expect(page).not_to have_link 'みてる！'
     expect(page).not_to have_link 'アカウント設定', href: edit_user_registration_path
   end
 
@@ -23,7 +23,7 @@ RSpec.describe 'Site Layout feature spec', type: :feature do
 
     visit root_path
     expect(page).not_to have_link 'アカウントを作る', href: new_user_registration_path
-    expect(page).to have_link 'Watch'
+    expect(page).to have_link 'みてない'
     expect(page).to have_link 'アカウント設定', href: edit_user_registration_path
   end
 end

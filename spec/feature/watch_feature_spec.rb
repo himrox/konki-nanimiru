@@ -10,11 +10,11 @@ RSpec.describe 'Watch feature spec', type: :feature, js: true do
     fill_in 'ユーザー名', with: @user.username
     fill_in 'パスワード', with: @user.password
     click_button 'ログイン'
-    click_link 'UnWatch'
+    click_link 'みてない'
     visit root_path
     expect(Watch.count).to eq 1
 
-    click_link 'Watch'
+    click_link 'みてる！'
     visit root_path
     expect(Watch.count).to eq 0
   end

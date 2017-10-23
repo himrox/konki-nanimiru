@@ -19,7 +19,7 @@
         <li class="list-group-item watch-list">
           <%= link_to(anime.title, anime.public_url, target: "_blank") %>
           <div class="list-btn">
-            <%= link_to 'Watch', watches_destroy_path(anime_id: anime.id),
+            <%= link_to 'みてる！', watches_destroy_path(anime_id: anime.id),
                                  method: 'delete', remote: true,
                                  class: 'btn btn-success btn-sm',
                                  id: "unwatch_#{anime.id}" %>
